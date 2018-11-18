@@ -9,6 +9,9 @@
 *.userosscache
 *.sln.docstates
 
+# directory not for sync
+info/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
