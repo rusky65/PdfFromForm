@@ -4,6 +4,46 @@
              xmlns:local="clr-namespace:PdfFromForm"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!-- Storyboards for Menu -->
+        <Storyboard x:Key="sbShowLeftMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-180,0,0,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1"/>
+        </Storyboard>
+        <Storyboard x:Key="sbHideLeftMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-180,0,0,0" DecelerationRatio=".9" Duration="0:0:1"/>
+        </Storyboard>
+        <!-- Menu StackPanel-->
+        <Style x:Key="spSlideLeft" TargetType="StackPanel">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard Storyboard="{StaticResource sbShowLeftMenu}"/>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard Storyboard="{StaticResource sbHideLeftMenu}"/>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Menu Label-->
+        <Style x:Key="MenuLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,0,0,0"/>
+            <Setter Property="Foreground" Value="#FFACB5B9"/>
+            <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+            <Setter Property="TextOptions.TextRenderingMode" Value="Auto"/>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Foreground" Value="#FFACB5B9"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
 </Application>
