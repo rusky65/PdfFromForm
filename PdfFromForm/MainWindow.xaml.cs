@@ -18,7 +18,7 @@ namespace PdfFromForm
             InitializeComponent();
 
             // Store the borders (forms) into the List
-            foreach (var control in mainGrid.Children)
+            foreach (var control in gridForms.Children)
             {
                 if (control.GetType() == typeof(Border))
                 {

@@ -13,110 +13,138 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Border x:Name="brdProfile"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spProfile"
-                            Background="#E0E0E0">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Profile details 1" Background="WhiteSmoke"/>
-                    <TextBlock Grid.Column="1" Text="Profile details 2" Background="Yellow"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+        <Grid x:Name="gridForms" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-        <Border x:Name="brdProfExperience" Height="0"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spProfExperience"
-                            Background="Red">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Professional experience details 3" Background="ForestGreen"/>
-                    <TextBlock Grid.Column="1" Text="Professional experience details 4" Background="Goldenrod"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+            <Grid x:Name="gridButtons">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnPreviousForm" Margin="15,10,15,10">
+                    <TextBlock Text="Previous form"/>
+                </Button>
+                <Button x:Name="btnSavetoPdf" Margin="15,10,15,10" Grid.Column="1">
+                    <TextBlock Text="Save to PDF"/>
+                </Button>
+                <Button x:Name="btnSavetoFile" Margin="15,10,15,10" Grid.Column="2">
+                    <TextBlock Text="Save to file"/>
+                </Button>
+                <Button x:Name="btnNextForm" Margin="15,10,15,10" Grid.Column="3">
+                    <TextBlock Text="Next form"/>
+                </Button>
+            </Grid>
 
-        <Border x:Name="brdEducation" Height="0"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spEducation"
-                            Background="Green">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Educational details 5" Background="ForestGreen"/>
-                    <TextBlock Grid.Column="1" Text="Educational details 6" Background="Goldenrod"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+            <Border x:Name="brdProfile"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spProfile"
+                                Background="#E0E0E0">
+                    <Grid x:Name="gridProfile">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Profile details 1" Background="WhiteSmoke"/>
+                        <TextBlock Grid.Column="1" Text="Profile details 2" Background="Yellow"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
 
-        <Border x:Name="brdLanguage" Height="0"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spLanguage"
-                            Background="Aquamarine">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Languages details 5" Background="ForestGreen"/>
-                    <TextBlock Grid.Column="1" Text="Languages details 6" Background="Goldenrod"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+            <Border x:Name="brdProfExperience" Height="0"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spProfExperience"
+                                Background="Red">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Professional experience details 3" Background="ForestGreen"/>
+                        <TextBlock Grid.Column="1" Text="Professional experience details 4" Background="Goldenrod"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
 
-        <Border x:Name="brdQualifications" Height="0"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spQualifications"
-                            Background="BlanchedAlmond">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Qualifications details 5" Background="ForestGreen"/>
-                    <TextBlock Grid.Column="1" Text="Qualifications details 6" Background="Goldenrod"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+            <Border x:Name="brdEducation" Height="0"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spEducation"
+                                Background="Green">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Educational details 5" Background="ForestGreen"/>
+                        <TextBlock Grid.Column="1" Text="Educational details 6" Background="Goldenrod"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
 
-        <Border x:Name="brdAchievements" Height="0"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spAchievements"
-                            Background="LightSteelBlue">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Achievements details 5" Background="ForestGreen"/>
-                    <TextBlock Grid.Column="1" Text="Achievements details 6" Background="Goldenrod"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+            <Border x:Name="brdLanguage" Height="0"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spLanguage"
+                                Background="Aquamarine">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Languages details 5" Background="ForestGreen"/>
+                        <TextBlock Grid.Column="1" Text="Languages details 6" Background="Goldenrod"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
 
-        <Border x:Name="brdInterests" Height="0"
-                Grid.Column="1" Padding="10,10,10,10">
-            <StackPanel x:Name="spInterests"
-                            Background="LightGoldenrodYellow">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Interests details 5" Background="ForestGreen"/>
-                    <TextBlock Grid.Column="1" Text="Interests details 6" Background="Goldenrod"/>
-                </Grid>
-            </StackPanel>
-        </Border>
+            <Border x:Name="brdQualifications" Height="0"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spQualifications"
+                                Background="BlanchedAlmond">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Qualifications details 5" Background="ForestGreen"/>
+                        <TextBlock Grid.Column="1" Text="Qualifications details 6" Background="Goldenrod"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="brdAchievements" Height="0"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spAchievements"
+                                Background="LightSteelBlue">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Achievements details 5" Background="ForestGreen"/>
+                        <TextBlock Grid.Column="1" Text="Achievements details 6" Background="Goldenrod"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border x:Name="brdInterests" Height="0"
+                    Grid.Row="1" Padding="10,10,10,10">
+                <StackPanel x:Name="spInterests"
+                                Background="LightGoldenrodYellow">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Interests details 5" Background="ForestGreen"/>
+                        <TextBlock Grid.Column="1" Text="Interests details 6" Background="Goldenrod"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
 
         <!-- Put the control you want to bring to front at the end of your xaml code. :) 
             Or setup the "Panel.ZIndex" property to the hightest value. (for example: Panel.ZIndex="200")-->
