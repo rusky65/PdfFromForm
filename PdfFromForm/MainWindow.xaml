@@ -6,7 +6,11 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:PdfFromForm"
         mc:Ignorable="d"
-        Title="CV Creator" WindowStartupLocation="CenterScreen">
+        xmlns:vmPd="clr-namespace:PdfFromForm.ViewModels"
+        Title="CV Creator" WindowStartupLocation="CenterScreen" Name="mainWindow">
+    <Window.DataContext>
+        <vmPd:PersonalDetailsVM />
+    </Window.DataContext>
     <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
@@ -42,17 +46,167 @@
 
             <Border x:Name="brdProfile"
                     Grid.Row="1" Padding="10,10,10,10">
-                <StackPanel x:Name="spProfile"
-                                Background="#E0E0E0">
-                    <Grid x:Name="gridProfile">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="Profile details 1" Background="WhiteSmoke"/>
-                        <TextBlock Grid.Column="1" Text="Profile details 2" Background="Yellow"/>
-                    </Grid>
-                </StackPanel>
+                <ScrollViewer>
+                    <StackPanel x:Name="spProfile" DataContext="{Binding SearchedPersonalDetails}"
+                                Background="#E0E0E0" Margin="65, 0">
+                        <TextBlock Text="Personal details" FontWeight="Bold" Margin="0 10" HorizontalAlignment="Center"/>
+                        <!-- Image , personal id -->
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <fa:ImageAwesome x:Name="imgPerson" Grid.Column="0"
+                                             HorizontalAlignment="Right"
+                                             Icon="User" Width="80" Height="80"
+                                             Margin="10 0"/>
+                            <StackPanel Grid.Column="1" Margin="10" Orientation="Horizontal">
+                                <TextBlock Text="Personal id:" Padding="2"
+                                           Height="25" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtPersonId"
+                                         Text="{Binding ElementName=mainWindow,Path=DataContext.PersonId,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                         Width="100" Height="25" HorizontalAlignment="Center"
+                                         Padding="2" Margin="0, 0, 0, 2"></TextBox>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Gender -->
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Gender" FontWeight="Bold" Margin="5"/>
+                            <ComboBox Grid.Column="1" Padding="5" Width="200" HorizontalAlignment="Left"  >
+                                <ComboBoxItem>male</ComboBoxItem>
+                                <ComboBoxItem>female</ComboBoxItem>
+                            </ComboBox>
+                        </Grid>
+
+                        <!-- Name -->
+                        <GroupBox Header="Name" Height="Auto" Padding="5" Margin="10 20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Academic title:" Grid.Row="0" FontWeight="Bold" Margin="5"/>
+                                <TextBox x:Name="txtPrefixTitle" Grid.Row="0" Grid.Column="1"
+                                        Text="{Binding PrefixTitle}"
+                                        Padding="5" Margin="0,2,10,2"/>
+
+                                <TextBlock Text="First name:" Grid.Row="1" FontWeight="Bold" Margin="5"/>
+                                <TextBox x:Name="txtFirstName" Grid.Row="1" Grid.Column="1"
+                                        Text="{Binding FirstName}"
+                                        Padding="5" Margin="0,2,10,2"/>
+
+                                <TextBlock Text="Last name:" Grid.Row="2" FontWeight="Bold" Margin="5"/>
+                                <TextBox x:Name="txtLastName" Grid.Row="2" Grid.Column="1"
+                                        Text="{Binding LastName}"
+                                        Padding="5" Margin="0,2,10,2"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <!-- Nationality -->
+                        <Grid Margin="0,5,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Birth date" Grid.Row="0" FontWeight="Bold" Margin="5"/>
+                            <TextBox x:Name="txtBirthDate" Grid.Row="0" Grid.Column="1"
+                                         Text="{Binding BirthDate}"
+                                         Padding="5" Margin="0,2,10,2"/>
+
+                            <TextBlock Text="Nationality" Grid.Row="1" FontWeight="Bold" Margin="5"/>
+                            <TextBox x:Name="txtNationality" Grid.Row="1" Grid.Column="1"
+                                         Text="{Binding Nationality}"
+                                         Padding="5" Margin="0,2,10,2"/>
+
+                            <TextBlock Text="Phone number" Grid.Row="2" FontWeight="Bold" Margin="5"/>
+                            <TextBox x:Name="txtPhoneNumber" Grid.Row="2" Grid.Column="1"
+                                         Text="{Binding PhoneNumber}"
+                                         Padding="5" Margin="0,2,10,2"/>
+
+                            <TextBlock Text="Mobil phone" Grid.Row="3" FontWeight="Bold" Margin="5"/>
+                            <TextBox x:Name="txtMobilPhone" Grid.Row="3" Grid.Column="1"
+                                         Text="{Binding MobilPhone}"
+                                         Padding="5" Margin="0,2,10,2"/>
+
+                            <TextBlock Text="E-mail" Grid.Row="4" FontWeight="Bold" Margin="5"/>
+                            <TextBox x:Name="txtEmailAddress" Grid.Row="4" Grid.Column="1"
+                                         Text="{Binding EmailAddress}"
+                                         Padding="5" Margin="0,2,10,2"/>
+
+                            <TextBlock Text="WebPages" Grid.Row="5" FontWeight="Bold" Margin="5"/>
+                            <TextBox x:Name="txtWebPages" Grid.Row="5" Grid.Column="1"
+                                         Text="{Binding WebPages}"
+                                         Padding="5" Margin="0,2,10,2"/>
+                        </Grid>
+
+
+                        <!-- Post addres-->
+                        <GroupBox Header="Post addres" Height="Auto" Padding="5" Margin="10 20">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Street and Hous number:" Grid.Row="0" FontWeight="Bold" Margin="5"/>
+                                <TextBox x:Name="txtStreetAndHouseNumber" Grid.Row="0" Grid.Column="1"
+                                        Text="{Binding StreetAndHouseNumber}"
+                                        Padding="5" Margin="0,2,10,2"/>
+
+                                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="Code:" Grid.Row="0" FontWeight="Bold" Margin="5" Width="100"/>
+                                        <TextBox x:Name="txtPostCode" Grid.Row="1" Grid.Column="0"
+                                            Text="{Binding PostCode}"
+                                            Padding="5" Margin="0,2,10,2"/>
+
+                                        <TextBlock Text="City:" Grid.Row="0" Grid.Column="1" FontWeight="Bold" Margin="5"/>
+                                        <TextBox x:Name="txtPostCity" Grid.Row="1" Grid.Column="1"
+                                            Text="{Binding PostCity}"
+                                            Padding="5" Margin="0,2,10,2"/>
+                                    </Grid>
+
+                                </Grid>
+
+                                <TextBlock Text="Country:" Grid.Row="2" FontWeight="Bold" Margin="5"/>
+                                <TextBox x:Name="txtCountry" Grid.Row="2" Grid.Column="1"
+                                        Text="{Binding Country}"
+                                        Padding="5" Margin="0,2,10,2"/>
+                            </Grid>
+                        </GroupBox>
+
+                    </StackPanel>
+                </ScrollViewer>
             </Border>
 
             <Border x:Name="brdProfExperience" Height="0"
@@ -136,11 +290,12 @@
                                 Background="LightGoldenrodYellow">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="346*"/>
+                            <ColumnDefinition Width="89*"/>
+                            <ColumnDefinition Width="257*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="Interests details 5" Background="ForestGreen"/>
-                        <TextBlock Grid.Column="1" Text="Interests details 6" Background="Goldenrod"/>
+                        <TextBlock Text="Interests details 5" Background="ForestGreen" Grid.ColumnSpan="2" Margin="0,0,88.758,0"/>
+                        <TextBlock Grid.Column="1" Text="Interests details 6" Background="Goldenrod" Grid.ColumnSpan="2" Margin="0.4,0,-1,0"/>
                     </Grid>
                 </StackPanel>
             </Border>
