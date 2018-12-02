@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PdfFromForm.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,9 +11,11 @@ namespace PdfFromForm.Models
     [TypeConverter(typeof(EnumDescriptionTypeConverter))]
     public enum GenderType
     {
-        [Description("I am a man.")]
+        //[Description("I am a man.")]
+        [LocalizedDescription("male", typeof(ResourcesForEnums))]
         male,
-        [Description("I am a woman.")]
+        //[Description("I am a woman.")]
+        [LocalizedDescription("female", typeof(ResourcesForEnums))]
         female
     }
 
