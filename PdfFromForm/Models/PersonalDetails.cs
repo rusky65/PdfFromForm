@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PdfFromForm.Models
 {
+    [TypeConverter(typeof(EnumDescriptionTypeConverter))]
     public enum GenderType
     {
+        [Description("I am a man.")]
         male,
+        [Description("I am a woman.")]
         female
     }
 
