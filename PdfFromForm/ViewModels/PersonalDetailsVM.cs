@@ -33,6 +33,25 @@ namespace PdfFromForm.ViewModels
                     StreetAndHouseNumber = "testStreet 115./G",
                     Country = "testCountry"
                 });
+
+            perssonalDetailsList.Add(new PersonalDetails
+            {
+                PersonalId = 2,
+                Gender = GenderType.male,
+                PrefixTitle = "Prof.",
+                FirstName = "test    FirstName",
+                LastName = "test    LastName",
+                BirthDate = DateTime.Parse("10.10.1995"),
+                Nationality = "test    Nationality",
+                PhoneNumber = "+15 1111 333 887",
+                MobilPhone = "+15 1111 333 774",
+                EmailAddress = "test    @test    .test",
+                WebPages = "www.test    WebPage.page",
+                PostCode = 88255,
+                PostCity = "test    City",
+                StreetAndHouseNumber = "test    Street 115./G",
+                Country = "test    Country"
+            });
         }
 
         private int _personId;

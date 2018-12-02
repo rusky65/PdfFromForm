@@ -78,8 +78,9 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Gender" FontWeight="Bold" Margin="5"/>
-                            <ComboBox Grid.Column="1" Padding="5" Width="200" HorizontalAlignment="Left"  
-                                      ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:GenderType}}}">
+                            <ComboBox Name="cmbGender" Grid.Column="1" Padding="5" Width="200" HorizontalAlignment="Left"
+                                      ItemsSource="{Binding Source={local:EnumBindingSource {x:Type local:GenderType}}}"
+                                      SelectedItem="{Binding Gender, Mode=TwoWay}">
                             </ComboBox>
                         </Grid>
 
