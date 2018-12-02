@@ -41,7 +41,7 @@ namespace PdfFromForm.ViewModels
                 PrefixTitle = "Prof.",
                 FirstName = "test    FirstName",
                 LastName = "test    LastName",
-                BirthDate = DateTime.Parse("10.10.1995"),
+                BirthDate = DateTime.Parse("05.07.1987"),
                 Nationality = "test    Nationality",
                 PhoneNumber = "+15 1111 333 887",
                 MobilPhone = "+15 1111 333 774",

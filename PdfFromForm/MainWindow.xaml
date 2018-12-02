@@ -129,7 +129,7 @@
                             </Grid.RowDefinitions>
                             <TextBlock Text="Birth date" Grid.Row="0" FontWeight="Bold" Margin="5"/>
                             <TextBox x:Name="txtBirthDate" Grid.Row="0" Grid.Column="1"
-                                         Text="{Binding BirthDate}"
+                                         Text="{Binding BirthDate, StringFormat=dd.MM.yyyy}"
                                          Padding="5" Margin="0,2,10,2"/>
 
                             <TextBlock Text="Nationality" Grid.Row="1" FontWeight="Bold" Margin="5"/>
